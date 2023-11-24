@@ -3,42 +3,31 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"text/template"
 )
 
 const portNumber = ":8888"
 
-// Tach func ra rieng cho home
+// No template
+func productHandler(w http.ResponseWriter, r *http.Request) {
 
-func about(w http.ResponseWriter, r *http.Request) {
+	pTemplate, err := template.ParseFiles("./template/product.page.tmpl")
+	if err == nil {
+		fmt.Println("Not found page product")
+	}
 
-	fmt.Fprintf(w, "This is about page")
+	pTemplate.Execute(w, nil)
 }
-
-func home(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "This is home page")
-}
-
-// Tach func ra rieng cho about
 
 func main() {
 
-	fmt.Println("inside main")
+	http.HandleFunc("/about", aboutHandler)
 
-	// Muc tieu la request response
-	/* http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/home", homeHandler)
 
-		w.Header().Set("Content-Type", "json/application")
+	http.HandleFunc("/devide", devideHandler)
 
-		n, err := fmt.Fprintf(w, "abc strig ")
-
-		fmt.Println(fmt.Sprintf("number of byte %d", n))
-		fmt.Println(err)
-
-	})
-	*/
-	http.HandleFunc("/about", about)
-
-	http.HandleFunc("/home", home)
+	http.HandleFunc("/product", productHandler)
 
 	// start web server , if error then ignore it _
 	_ = http.ListenAndServe(portNumber, nil)
