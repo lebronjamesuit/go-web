@@ -19,6 +19,12 @@ func aboutHandler(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, about)
 }
 
+// product handler
+func productHandler(w http.ResponseWriter, r *http.Request) {
+	product := "product.page.tmpl"
+	renderTemplate(w, product)
+}
+
 func renderTemplate(w http.ResponseWriter, fileName string) {
 
 	pointerTem, _ := template.ParseFiles("./template/" + fileName)

@@ -1,23 +1,10 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
-	"text/template"
 )
 
 const portNumber = ":8888"
-
-// No template
-func productHandler(w http.ResponseWriter, r *http.Request) {
-
-	pTemplate, err := template.ParseFiles("./template/product.page.tmpl")
-	if err == nil {
-		fmt.Println("Not found page product")
-	}
-
-	pTemplate.Execute(w, nil)
-}
 
 func main() {
 
