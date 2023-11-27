@@ -1,0 +1,11 @@
+
+Steps to create module safe
+
+Root folder 
+  go mod init jamesvo.uk/moduleName  (any name)
+
+  Rule 2: all function name must hava capital letter in order to be access 
+  from another package
+  https://go.dev/doc/tutorial/create-module
+
+  
