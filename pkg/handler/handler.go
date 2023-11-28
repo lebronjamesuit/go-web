@@ -8,12 +8,8 @@ import (
 	"jamesvo.uk/website/pkg/render"
 )
 
-func Nothing() {
-	fmt.Println("nothing function")
-}
-
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
-	var home string = "about.page.tmpl"
+	var home string = "home.page.tmpl"
 	render.RenderTemplate(w, home)
 
 }

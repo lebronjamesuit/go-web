@@ -8,4 +8,6 @@ Root folder
   from another package
   https://go.dev/doc/tutorial/create-module
 
-  
+e.g
+package render
+func RenderTemplate () {...}
