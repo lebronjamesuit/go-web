@@ -3,9 +3,8 @@ package handler
 import (
 	"errors"
 	"fmt"
-	"net/http"
-
 	"jamesvo.uk/website/pkg/render"
+	"net/http"
 )
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
